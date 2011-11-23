@@ -1,0 +1,107 @@
+  ------
+  Diskussionsteil Blatt 1
+  ------
+  Marcel Schneider, <schneiml@studi.informatik.uni-stuttgart.de, 2714459>
+  ------
+  11. 11. 2011
+
+Aufgabe 1
+
+** Was macht die Routine?
+
+  Eine binär als String dargestellte Zahl in eine „normale“ Zahl (also vom Typ Natural) umwandeln.
+  
+** Probleme
+
+    * Bezeichner B, D sehr kurz 
+    
+    * for-Schleife könnte mit <<<'Range>>> formuliert werden
+    
+    * Berechnung des Exponenten ist schwer verständlich
+    
+** Lösung
+
++--------------------------------------------------------------+
+function B2D (Binaer : in String) return Natural is
+  Dezimal : Natural := 0;
+  Stelle : Natural;
+begin
+  for I in reverse Binaer'Range loop
+    if Binaer (I) = '1' then
+      Stelle := I - Binaer'First + 1 --  Stelle im String
+      Stelle := Binaer'Length - Stelle; -- von hinten her zaehlen
+      Dezimal := Dezimal + 2 ** (Stelle);
+    end if;
+  end loop;
+  return Dezimal;
+end B2D;
+
++--------------------------------------------------------------+
+
+Aufgabe 2
+
+  Programmquelltext soll nicht nur maschinen- sondern auch menschenlesbar sein. 
+  Zeichen, die nicht vom Compiler interpretiert werden, können genutzt werden, um 
+  auch den nicht zwangsläufig gut lesbaren Code in eine form zu bringen, die auch für 
+  Menschen verständlich ist, ohne die Funktion zu beeinflussen.
+  
+  Das Semikolon gehört so direkt zur Anweisung, jede Anweisung endet einheitlich 
+  mit einem Semikolon. 
+  
+Aufgabe 3
+  
+-----------------------------------------------------------------
+stacks.ads:<viele> Inkonsistenz - @Function oder FUNCTION u. Ä.
+
+stacks.adb:44: Kommentar in Codezeile
+stacks.adb:44: Keine 2 Leerzeichen
+-----------------------------------------------------------------
+
+Aufgabe 4
+
+  * Bessere Lesbarkeit, kürzere Zeilen (79-Zeichen-Limit)
+
+  * Kommentare in der vorangehenden Zeile.
+
+  * Bessere Lesbarkeit durch sinnvollere Bezeichner, schöner für das Auge
+
+  * Ja, falls der entsprechende Teil des Programms nicht übermäßig 
+    performancekritisch ist.
+
+  * Kommentare sollen die Funktion erläutern und die Aufgaben von Unterprogrammen 
+    zusammenfassen. Sie sollen die <Bedeutung> von Variablen, Aufrufen, usw. 
+    erklären.
+  
+Aufgabe 5
+  
+  * Bessere Lesbarkeit durch bessere Nachvollziehbarkeit der Herkunft der Befehle.
+
+  * „use“ ist weniger Problematisch, wenn nur wenige Packages verwendet werden.
+  
+Aufgabe 6
+  
++------------------------------------------------------------------+
+--
+-- PROCEDURE Decrease
+--
+-- Deceases an Integer by one.
+--
+-- PARAMETERS :
+-- + X: the Integer to be decreased
+-- 
++------------------------------------------------------------------+
+  
++------------------------------------------------------------------+
+--
+-- FUNCTION Factorial
+--
+--  Calculates the factorial of N when 0 <= N <= 20
+--
+-- PARAMETERS :
+-- + N: the number for which the factorial is calculated
+-- 
+-- RETURNS: the factorial of N
+-- 
++------------------------------------------------------------------+
+
+  
