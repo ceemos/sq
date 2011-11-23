@@ -1,0 +1,20 @@
+--
+-- PROCEDURE Decrease
+--
+-- Deceases an Integer by one.
+--
+-- PARAMETERS :
+-- + X: the Integer to be decreased
+-- 
+
+
+--
+-- FUNCTION Factorial
+--
+--  Calculates the factorial of N when 0 <= N <= 20
+--
+-- PARAMETERS :
+-- + N: the number for which the factorial is calculated
+-- 
+-- RETURNS: the factorial of N
+-- 
