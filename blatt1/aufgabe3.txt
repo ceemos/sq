@@ -1,3 +1,5 @@
+stacks.ads:<viele> Inkonsistenz - @Function oder FUNCTION u. Ä.
+
 stacks.adb:44: Kommentar in Codezeile
 stacks.adb:44: Keine 2 Leerzeichen
 
