@@ -1,7 +1,7 @@
   ------
   Diskussionsteil Blatt 1
   ------
-  Marcel Schneider, <schneiml@studi.informatik.uni-stuttgart.de, 2714459>
+  Marcel Schneider, 
   ------
   11. 11. 2011
 
