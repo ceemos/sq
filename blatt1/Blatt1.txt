@@ -27,7 +27,7 @@ function B2D (Binaer : in String) return Natural is
   Stelle : Natural;
 begin
   for I in reverse Binaer'Range loop
-    if Binaer (I) = '1' then
+    if Binaer (I) = '1's then
       Stelle := I - Binaer'First + 1 --  Stelle im String
       Stelle := Binaer'Length - Stelle; -- von hinten her zaehlen
       Dezimal := Dezimal + 2 ** (Stelle);
@@ -77,30 +77,32 @@ Aufgabe 5
   * Bessere Lesbarkeit durch bessere Nachvollziehbarkeit der Herkunft der Befehle.
 
   * „use“ ist weniger Problematisch, wenn nur wenige Packages verwendet werden.
+
+  * Es ist möglich, Paketen lokal kürzere Alias-Namen zu geben.
   
 Aufgabe 6
   
 +------------------------------------------------------------------+
 --
--- PROCEDURE Decrease
+--  @Procedure: Decrease
 --
--- Deceases an Integer by one.
+--  Decreases an Integer by one.
 --
--- PARAMETERS :
--- + X: the Integer to be decreased
+--  @Parameter:
+--  + X: the Integer to be decreased
 -- 
 +------------------------------------------------------------------+
   
 +------------------------------------------------------------------+
 --
--- FUNCTION Factorial
+--  @Function: Factorial
 --
 --  Calculates the factorial of N when 0 <= N <= 20
 --
--- PARAMETERS :
--- + N: the number for which the factorial is calculated
+--  @Parameter:
+--  + N: the number for which the factorial is calculated
 -- 
--- RETURNS: the factorial of N
+--  @Return: the factorial of N
 -- 
 +------------------------------------------------------------------+
 
