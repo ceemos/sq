@@ -1,0 +1,10 @@
+Bessere Lesbarkeit, kürzere Zeilen (79-Zeichen-Limit)
+
+Kommentare in der vorangehenden Zeile
+
+Bessere Lesbarkeit durch sinnvollere Bezeichner, schöner für das Auge
+
+Ja, falls der entsprechende Teil des Programms nicht übermäßig performancekritisch ist.
+
+Kommentare sollen die Funktion erläutern und die Aufgaben von Unterprogrammen zusammenfassen. Sie sollen die <Bedeutung> von Variablen, Aufrufen, usw. erklären.
+

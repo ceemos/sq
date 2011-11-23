@@ -1,0 +1,5 @@
+stacks.adb:44: Kommentar in Codezeile
+stacks.adb:44: Keine 2 Leerzeichen
+
+stacks.adb:74: Zu viele Leerzeichen (in Deklaration)
+stacks.adb:
