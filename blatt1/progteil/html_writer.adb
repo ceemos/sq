@@ -16,101 +16,156 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 procedure HTML_Writer is
 
-   --  Writes a <html> tag to the file.
    --  @Procedure: Start_Page 
    --
-   --  <Text>
+   --  Writes a <html> tag to the file.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Start_Page (File : in File_Type) is .. .
-   --  Writes a </html> tag to the file.
+   procedure Start_Page (File : in File_Type) is 
+   
+   
    --  @Procedure: Finish_Page 
    --
-   --  <Text>
+   --  Writes a </html> tag to the file.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Finish_Page (File : in File_Type) is .. .
+   procedure Finish_Page (File : in File_Type) is 
+   
+
+   
+   
+   --  @Procedure: Write_Head 
+   --
    --  Writes a html-header to the file. For instance:
    --  <head><title>Title</title></head>.
-   procedure Write_Head
-      (File : in File_Type;
-       Title : in String) is .. .
-   --  Starts the html page's body by writing a <body> tag.
+   --
+   --  @Parameter: 
+   --   + File: 
+   --   + Title: 
+   --  
+   procedure Write_Head (File  : in File_Type;
+       Title : in String) is 
+   
    --  @Procedure: Start_Body 
    --
-   --  <Text>
+   --  Starts the html page's body by writing a <body> tag.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Start_Body (File : in File_Type) is .. .
-   --  Finish a html page's body by writing a </body> tag.
+   procedure Start_Body (File : in File_Type) is 
+   
    --  @Procedure: Finish_Body 
    --
-   --  <Text>
+   --  Finish a html page's body by writing a </body> tag.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Finish_Body (File : in File_Type) is .. .
+   procedure Finish_Body (File : in File_Type) is 
+   
+
+   
+   
+   --  @Procedure: Write_Heading 
+   --
    --  Writes a heading with given level to the html file. For
    --  instance, <h1>Text</h1> where the 1 in h1 is the level.
-   procedure Write_Heading
-      (File : in File_Type;
+   --
+   --  @Parameter: 
+   --   + File: 
+   --   + Text: 
+   --   + Level: 
+   --  
+   procedure Write_Heading (File : in File_Type;
        Text : in String;
-       Level : in Positive) is .. .
+       Level : in Positive) is 
+       
+   
+   --  @Procedure: Add_Paragraph 
+   --
    --  Adds a paragraph by writing <p>Text</p> to the page.
-   procedure Add_Paragraph
-      (File : in File_Type;
-       Text : in String) is .. .
-   --  Starts an unordered list by writing a <ul> tag.
+   --
+   --  @Parameter: 
+   --   + File: 
+   --   + Text: 
+   --  
+   procedure Add_Paragraph (File : in File_Type;
+       Text : in String) is 
+       
+       
    --  @Procedure: Start_List 
    --
-   --  <Text>
+   --  Starts an unordered list by writing a <ul> tag.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Start_List (File : in File_Type) is .. .
-   --  Finishs an unordered list by writing </ul> tag.
+   procedure Start_List (File : in File_Type) is 
+   
+   
    --  @Procedure: Finish_List 
    --
-   --  <Text>
+   --  Finishs an unordered list by writing </ul> tag.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Finish_List (File : in File_Type) is .. .
-   --  Starts a new list item by writing <li>.
+   procedure Finish_List (File : in File_Type) is 
+   
+   
+   
    --  @Procedure: Start_List_Item 
    --
-   --  <Text>
+   --  Starts a new list item by writing <li>.
    --
    --  @Parameter: 
    --   + File: 
    --  
-   procedure Start_List_Item (File : in File_Type) is .. .
-   --  Finishs a list item by writing </li>.
+   procedure Start_List_Item (File : in File_Type) is 
+   
+   
+  
    --  @Procedure: Finish_List_Item 
    --
-   --  <Text>
+   --  Finishs a list item by writing </li>.
    --
    --  @Parameter: 
    --   + File: 
    --  
    procedure Finish_List_Item (File : in File_Type) is .. .
+   
+   
+   
+   
+   
+   --  @Procedure: Add_Link 
+   --
    --  Adds a link by writing <a href=“Target“>Text</a>.
-   procedure Add_Link
-      (File : in File_Type;
+   --
+   --  @Parameter: 
+   --   + File: 
+   --   + Target: 
+   --   + Text: 
+   --  
+   procedure Add_Link (File   : in File_Type;
        Target : in String;
-       Text : in String) is .. .
+       Text   : in String) is .. .
+
+   
+   --  @Procedure: Add_Text 
+   --
    --  Adds simply text without tags to the HTML document.
-   procedure Add_Text
-      (File : in File_Type;
+   --
+   --  @Parameter: 
+   --   + File: 
+   --   + Text: 
+   --  
+   procedure Add_Text (File : in File_Type;
        Text : in String) is .. .
 
 begin
