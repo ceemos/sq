@@ -1,0 +1,28 @@
+
+* 1. Programmierrichtlinie
+
+  * Das Program berechnet den größten gemeinsamen Teiler mit dem euklidischen Algorithmus.
+
+  * Verletzungen:
+  
+    * Kein Prozedur-Kommentar
+    
+    * sehr kurze Bezeichner, keine sprechenden Namen.
+    
+    * <<<use>>>-Klauseln auf mehreren Paketen (Unklarheit bei <<<Put>>>, <<<Get>>>)
+    
+    * Berechnung sollte von Ein-/Ausgabe getrennt werden.
+    
+* 2. Bezeichner
+
+  * Funktion: <<<Fakultaet>>>, <<<Faktorial>>>, Parameter: TODO
+  
+  * Funktion: <<<Ist_Primzahl>>>, <<<Pruefe_Primzahl>>>, Parameter: TODO
+  
+  * Variable: <<<Anzahl_Eingaben>>>
+  
+  * Typ: <<<Ampel_Farbe>>>, Werte: <<<TODO>>>
+  
+  * Typ: <<<Matrikelnummer>>>
+  
+  * 
