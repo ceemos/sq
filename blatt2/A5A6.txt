@@ -1,0 +1,111 @@
+*  5. Get_Min_Index
++---------------------------------------------+
+--  @Function: Get_Min_Index
+--
+--  Finds the first occurence of the given character in a given string.
+--
+--  @Parameters:
+--    + Str: The string to search in.
+--    + Ch: The character to be searched for.
+--
+--  @Return: The index of the first occurence of Ch, Str'First - 1 when the 
+--           Character is not found.
+--
++---------------------------------------------+
+
+* 6. Implementierung
+
+*** <<<for>>>
++---------------------------------------------+
+   function Get_Min_Index
+      (Str : String;
+      Ch : Character) return Integer is
+      
+      Min_Index : Integer := Str'First - 1;
+   begin
+      for Index in Str'First .. Str'Last loop
+         if Str (Index) = Ch then
+            return Index;
+         end if;
+      end loop;
+      return Min_Index;
+   end Get_Min_Index;
++---------------------------------------------+
+
+*** <<<while>>>
++---------------------------------------------+
+   function Get_Min_Index
+      (Str : String;
+      Ch : Character) return Integer is
+      
+      Min_Index : Integer := Str'First - 1;
+      Index : Integer := Str'First - 1;
+   begin
+      while Index < Str'Last loop
+         Index := Index + 1;
+         if Str (Index) = Ch then
+            return Index;
+         end if;
+      end loop;
+      return Min_Index;
+   end Get_Min_Index;
++---------------------------------------------+
+
+*** <<<loop>>
++---------------------------------------------+
+   function Get_Min_Index
+      (Str : String;
+      Ch : Character) return Integer is
+      
+      Min_Index : Integer := Str'First - 1;
+      Index : Integer := Str'First;
+   begin
+      loop
+         if Str (Index) = Ch then
+            return Index;
+         end if;
+         Index := Index + 1;
+         exit when Index = Str'Last;
+      end loop;
+      return Min_Index;
+   end Get_Min_Index;
++---------------------------------------------+
+
+*** Rekursion
++---------------------------------------------+
+   function Get_Min_Index
+      (Str : String;
+      Ch : Character) return Integer is
+      
+      Min_Index : Integer := Str'First - 1;
+      
+      function Find_Min_Index (Start : Integer) return Integer is
+      begin
+         if Str (Start) = Ch then
+            return Start;
+         elsif Start = Str'Last then 
+            return Min_Index;
+         else 
+            return Find_Min_Index (Start + 1);
+         end if;
+      end Find_Min_Index;
+      
+   begin
+      return Find_Min_Index (Str'First);
+   end Get_Min_Index;
++---------------------------------------------+
+
+** Bewertung:
+  
+  Die <<<for>>>-Schleife liefert den kürzesten Code und ist auch am einfachsten zu 
+  verstehen, da der Typ der Schleife schon den Zweck (iterieren über einen Bereich)
+  angibt. Deshalb ist die <<<for>>>-Schleife auch am besten geeignet. 
+  
+  Die anderen Schleifen-Varianten benötigen mehr Code um das Verhalten der 
+  <<<for>>>-Schleife nachzubilden, ohne einen weiteren Nutzen zu bringen. Den
+  Zeichen-Vergleich <<<Str (Index) = Ch>>> in die Schleifenbedingung zu setzen
+  bringt auch keinen Vorteil, da nicht sicher ist, ob das Zeichen gefunden wird.
+  
+  Die rekursive Variante bietet sich wenig an, eine einfache Iteration ist in einer Schleife 
+  einfacher auszudrücken. Zudem besteht die Gefahr eines <Stack Overflow> bei einem 
+  langen String.

@@ -13,16 +13,35 @@
     
     * Berechnung sollte von Ein-/Ausgabe getrennt werden.
     
+ Text...
+
+    
 * 2. Bezeichner
 
-  * Funktion: <<<Fakultaet>>>, <<<Faktorial>>>, Parameter: TODO
+  * Funktion: <<<Fakultaet>>>, <<<Faktorial>>>, Parameter: <<<N>>>, <<<Zahl>>>
   
-  * Funktion: <<<Ist_Primzahl>>>, <<<Pruefe_Primzahl>>>, Parameter: TODO
+  * Funktion: <<<Ist_Primzahl>>>, <<<Pruefe_Primzahl>>>, Parameter: <<<N>>>, <<<Moegliche_Primzahl>>>
   
   * Variable: <<<Anzahl_Eingaben>>>
   
-  * Typ: <<<Ampel_Farbe>>>, Werte: <<<TODO>>>
+  * Typ: <<<Ampel_Farbe>>>, Werte: <<<ROT>>>, <<<GELB>>>, <<<ROT_GELB>>>, <<<GRUEN>>>
   
-  * Typ: <<<Matrikelnummer>>>
+  * Typ: <<<Matrikelnummer_Type>>>, <<<Matrikelnummer_7_Stellig>>>
   
-  * 
+  * Variable: <<<Mat_Nr>>>, <<<Matrikelnummer>>>
+  
+  * Paket: <<<Float_Tools>>>, <<<Float_Hilfsmittel>>>
+  
+  * Funktion: <<<Berechne_Durchschnitt>>>, <<<Durchschnitt>>>, Parameter: <<<Zahl_1, Zahl_2>>>
+  
+  * Funktion: <<<Berechne_Schnittmenge>>>, Parameter: <<<Set_1, Set_2>>>, <<<Menge_1, Menge_2>>>
+  
+  * Prozedur: <<<Enferne_Element>>>, Parameter: <<<Menge, Element>>>
+  
+  * Variable: <<<Durchlauf>>>, <<<N>>>
+  
+  * Paket: <<<Programmkonfiguration_Konstanten>>>, <<<Programmconfig>>>
+  
+
+  
+  
