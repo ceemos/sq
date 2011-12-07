@@ -15,8 +15,9 @@
 
 * 6. Implementierung
 
-*** <<<for>>>
-+---------------------------------------------+
+  * <<<for>>>
+  
+---------------------------------------------.adb
    function Get_Min_Index
       (Str : String;
       Ch : Character) return Integer is
@@ -30,10 +31,11 @@
       end loop;
       return Min_Index;
    end Get_Min_Index;
-+---------------------------------------------+
+---------------------------------------------
 
-*** <<<while>>>
-+---------------------------------------------+
+  * <<<while>>>
+  
+---------------------------------------------.adb
    function Get_Min_Index
       (Str : String;
       Ch : Character) return Integer is
@@ -49,10 +51,11 @@
       end loop;
       return Min_Index;
    end Get_Min_Index;
-+---------------------------------------------+
+---------------------------------------------
 
-*** <<<loop>>
-+---------------------------------------------+
+  * <<<loop>>
+  
+---------------------------------------------.adb
    function Get_Min_Index
       (Str : String;
       Ch : Character) return Integer is
@@ -69,10 +72,11 @@
       end loop;
       return Min_Index;
    end Get_Min_Index;
-+---------------------------------------------+
+---------------------------------------------
 
-*** Rekursion
-+---------------------------------------------+
+  * Rekursion
+  
+---------------------------------------------.adb
    function Get_Min_Index
       (Str : String;
       Ch : Character) return Integer is
@@ -93,7 +97,7 @@
    begin
       return Find_Min_Index (Str'First);
    end Get_Min_Index;
-+---------------------------------------------+
+---------------------------------------------
 
 ** Bewertung:
   

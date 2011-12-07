@@ -1,7 +1,7 @@
 stacks.ads:<viele> Inkonsistenz - @Function oder FUNCTION u. Ä.
+    Styleguide schreibt @... vor
+stacks.ads:42: Fehlende Leerzeichen
 
 stacks.adb:44: Kommentar in Codezeile
 stacks.adb:44: Keine 2 Leerzeichen
-
-stacks.adb:74: Zu viele Leerzeichen (in Deklaration)
-stacks.adb:
+stacks.adb:90 u. A.: unkommentierte „pragma“

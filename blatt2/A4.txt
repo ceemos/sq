@@ -6,7 +6,7 @@
 
   []
   
-+--------------------------------------+
+--------------------------------------.adb
 package Time is
   subtype Hour_Type is Integer range 0 .. 23;
   
@@ -29,7 +29,7 @@ package Time is
     
 end Time;
 
-+--------------------------------------+
+--------------------------------------
 
   * Die Struktur des Records kann als <<<private>>> markiert werden (im <<<private>>>-Block der Spezifikation), wie auch Funktionen und Prozeduren die der Nutzer nicht verwenden muss.
   

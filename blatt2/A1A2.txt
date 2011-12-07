@@ -12,8 +12,6 @@
     * <<<use>>>-Klauseln auf mehreren Paketen (Unklarheit bei <<<Put>>>, <<<Get>>>)
     
     * Berechnung sollte von Ein-/Ausgabe getrennt werden.
-    
- Text...
 
     
 * 2. Bezeichner
