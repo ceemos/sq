@@ -1,0 +1,37 @@
+*  4. Schnittstellen
+
+  * Alle Code-Teile, die direkt auf <<<Hours>>> und <<<Minutes>>> zugreifen, müssen angepasst werden.
+  
+  * Zugriff über Zugriffsmethoden:
+
+  []
+  
+--------------------------------------.adb
+package Time is
+  subtype Hour_Type is Integer range 0 .. 23;
+  
+  subtype Minute_Type is Integer range 0 .. 5
+  
+  type Time_Type is record
+    Hours : Hour_Type := 0;
+    Minutes : Minute_Type := 0;
+  end record;
+  
+  function Get_Minutes (Time : Time_Type) return Minute_Type;
+  function Get_Hours (Time : Time_Type) return Hour_Type;
+  
+  procedure Set_Minutes (Time : in out Time_Type, Minutes : Minute_Type);
+  procedure Set_Hours (Time : in out Time_Type, Minutes : Hour_Type);
+  
+  function "+"
+    (Left : Time_Type;
+    Right : Time_Type) return Time_Type;
+    
+end Time;
+
+--------------------------------------
+
+  * Die Struktur des Records kann als <<<private>>> markiert werden (im <<<private>>>-Block der Spezifikation), wie auch Funktionen und Prozeduren die der Nutzer nicht verwenden muss.
+  
+  
+  
