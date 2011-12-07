@@ -20,7 +20,7 @@ package body HTML_Writer is
       Writer : HTML_Writer_Type;
    begin
       Writer := new HTML_Writer_Record_Type;
-      Ada.Text_IO.Create (Writer.File, Ada.Text_IO.Out_File, File_Name);
+      Ada.Text_IO.Create (HTML_File, Ada.Text_IO.Out_File, File_Name);
       return Writer;
    end Initialize;
 
