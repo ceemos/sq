@@ -31,6 +31,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Start_Page (File : in HTML_Writer_Type);
    
@@ -41,6 +44,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Finish_Page (File : in HTML_Writer_Type);
 
@@ -54,6 +60,9 @@ package HTML_Writer is
    --  @Parameter: 
    --   + File: the Writer to write to.
    --   + Title: 
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Write_Head (File  : in HTML_Writer_Type;
        Title : in String);
@@ -64,6 +73,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Start_Body (File : in HTML_Writer_Type);
    
@@ -73,6 +85,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Finish_Body (File : in HTML_Writer_Type);
    
@@ -85,6 +100,9 @@ package HTML_Writer is
    --   + File: the Writer to write to.
    --   + Text: the Text of the Heading.
    --   + Level: the HTML-Level of the heading.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Write_Heading (File : in HTML_Writer_Type;
       Text : in String;
@@ -98,6 +116,9 @@ package HTML_Writer is
    --  @Parameter: 
    --   + File: the Writer to write to.
    --   + Text: the Text for the paragraph.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Add_Paragraph (File : in HTML_Writer_Type;
        Text : in String);
@@ -109,6 +130,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Start_List (File : in HTML_Writer_Type);
    
@@ -118,6 +142,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Finish_List (File : in HTML_Writer_Type);
    
@@ -128,6 +155,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Start_List_Item (File : in HTML_Writer_Type);
    
@@ -138,6 +168,9 @@ package HTML_Writer is
    --
    --  @Parameter: 
    --   + File: the Writer to write to.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Finish_List_Item (File : in HTML_Writer_Type);
    
@@ -150,6 +183,9 @@ package HTML_Writer is
    --   + File: the Writer to write to.
    --   + Target: the target location of the link.
    --   + Text: the Text to be displayed for the link.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place the tags, an Illegal_State_Exception is raised.
    --  
    procedure Add_Link (File : in HTML_Writer_Type;
       Target : in String;
@@ -162,6 +198,9 @@ package HTML_Writer is
    --  @Parameter: 
    --   + File: the Writer to write to.
    --   + Text: the Text to be added.
+   --
+   --  @Error_Handling: When the document is at a position where it is illegal
+   --    to place text, an Illegal_State_Exception is raised.
    --  
    procedure Add_Text (File : in HTML_Writer_Type;
        Text : in String);
