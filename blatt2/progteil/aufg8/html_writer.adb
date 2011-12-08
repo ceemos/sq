@@ -26,9 +26,9 @@ package body HTML_Writer is
 
    procedure Start_Page (File : in HTML_Writer_Type) is 
    begin
-      if State /= EMPTY then
+      if File.State /= EMPTY then
          raise Illegal_State_Exception;
-      end if
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<html>");
       File.State := PAGE_STARTED;
    end Start_Page;
@@ -43,9 +43,9 @@ package body HTML_Writer is
    procedure Write_Head (File  : in HTML_Writer_Type;
        Title : in String) is 
    begin
-      if State /= PAGE_STARTED then
+      if File.State /= PAGE_STARTED then
          raise Illegal_State_Exception;
-      end if
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<head><title>" & Title 
                                      & "</title></head>");
       File.State := HEAD_WRITTEN;
@@ -54,9 +54,9 @@ package body HTML_Writer is
 
    procedure Start_Body (File : in HTML_Writer_Type) is 
    begin
-      if State /= HEAD_WRITTEN then
+      if File.State /= HEAD_WRITTEN then
          raise Illegal_State_Exception;
-      end if
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<body>");
       File.State := BODY_STARTED;
    end Start_Body;
@@ -64,9 +64,9 @@ package body HTML_Writer is
 
    procedure Finish_Body (File : in HTML_Writer_Type) is 
    begin
-      if State /= BODY_STARTED then
+      if File.State /= BODY_STARTED then
          raise Illegal_State_Exception;
-      end if
+      end if;
       Ada.Text_IO.Put_Line (File.File, "</body>");
       File.State := BODY_FINISHED;
    end Finish_Body;
@@ -76,9 +76,9 @@ package body HTML_Writer is
       Text : in String;
       Level : in Positive) is 
    begin
-      if State /= BODY_STARTED then
+      if File.State /= BODY_STARTED then
          raise Illegal_State_Exception;
-      end if
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<h" 
          & Ada.Strings.Fixed.Trim (Positive'Image (Level), Ada.Strings.Both)
          & ">" & Text & "</h"
@@ -90,6 +90,9 @@ package body HTML_Writer is
    procedure Add_Paragraph (File : in HTML_Writer_Type;
        Text : in String) is 
    begin
+      if File.State /= BODY_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<p>");
       Ada.Text_IO.Put_Line (File.File, Text);
       Ada.Text_IO.Put_Line (File.File, "</p>");
@@ -98,6 +101,9 @@ package body HTML_Writer is
        
    procedure Start_List (File : in HTML_Writer_Type) is 
    begin
+      if File.State /= BODY_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<ul>");
       File.State := LIST_STARTED;
    end Start_List;
@@ -105,6 +111,9 @@ package body HTML_Writer is
   
    procedure Finish_List (File : in HTML_Writer_Type) is 
    begin
+      if File.State /= LIST_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "</ul>");
       File.State := BODY_STARTED;
    end Finish_List;   
@@ -112,6 +121,9 @@ package body HTML_Writer is
    
    procedure Start_List_Item (File : in HTML_Writer_Type) is 
    begin
+      if File.State /= LIST_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<li>");
       File.State := ITEM_STARTED;
    end Start_List_Item;   
@@ -119,6 +131,9 @@ package body HTML_Writer is
 
    procedure Finish_List_Item (File : in HTML_Writer_Type) is    
    begin
+      if File.State /= ITEM_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "</li>");
       File.State := LIST_STARTED;
    end Finish_List_Item;
@@ -130,6 +145,9 @@ package body HTML_Writer is
       
       QUOTE : constant Character := Character'Val (16#22#);
    begin
+      if File.State /= ITEM_STARTED and File.State /= BODY_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, "<a href=" & QUOTE 
          & Target & QUOTE & ">" 
          & Text 
@@ -139,6 +157,9 @@ package body HTML_Writer is
    procedure Add_Text (File : in HTML_Writer_Type;
        Text : in String) is 
    begin
+      if File.State /= ITEM_STARTED and File.State /= BODY_STARTED then
+         raise Illegal_State_Exception;
+      end if;
       Ada.Text_IO.Put_Line (File.File, Text);
    end Add_Text;
 
