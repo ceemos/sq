@@ -1,0 +1,26 @@
+* Aufgabe 4: Technische Mängel umschiffen
+
+  * In Lösung B entsteht ein temporärer Wert, der doppelt so groß wie das Ergebnis ist. Dadurch kann bereits bei Zahlen, für die A noch die korrekte Lösung liefert, ein Ganzzahl-Überlauf auftreten.
+
+  Um Lösung B zu verbessern, muss die Division durch 2 an einer anderen Stelle der Rechnung (weiter vorn) erfolgen. Da allerdings mit Ganzzahlen gerechnet wird, muss eine Fallunterscheidung nach geraden und ungeraden Zahlen vorgenommen werden, damit kein Rundungsfehler entsteht. Eine andere Lösung wäre die Verwendung von Fließkommazahlen, diese birgt aber die Gefahr von Ungenauigkeiten im Ergebnis.
+
+------------------------------.ada
+if N mod 2 = 0 then
+  --  gerade Zahl
+  Sum := (N / 2) * (N + 1);
+else
+  --  ungerade Zahl
+  Sum := N * ((N + 1) / 2);
+end if;
+------------------------------
+
+  * KGV:
+
+------------------------------.ada
+-- Calculates the least common multiple using the greatest
+-- common divisor (GCD).
+function LCM (A : Natural; B : Natural) return Natural is
+begin
+  return A * (B / GCD (A, B);
+end LCM;
+------------------------------

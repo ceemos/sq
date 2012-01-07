@@ -1,0 +1,11 @@
+* Aufgabe 1: Routinen eines ADT
+
+  Routinen können z. B. der <Wichtigkeit> nach sortiert und thematisch gruppiert werden. Da Ada vorschreibt das (prinzipiell für die spez. Unwichtige) private Deklarationen unten stehen ist es sinnvoll, wichtge Deklarationen oben zu Platzieren.
+
+  Ganz unten stehen dann die trivialen Zugriffsmethoden, die dann nach Attributen gruppiert werden (aus praktischen Gründen, wenn z. B. Datentypen oder Namen geäandert werden sollen). Davor sollten Zugriffsmethoden platziert werden, die zwar wie solche aussehen, aber u. U. komplexere Berechnungen durchführen (z. B. <<<Get_Size>>>).
+
+  Eine weitere Gruppe bilden Operatoren, die bei viele Typen die Wichtigsten Funktionen über nehmen und teils auch besonderer Erläuterung bedürfen. Sie sollten deshalb oben stehen.
+
+  Andere Routinen, die komplexere Aufgaben übernehmen, finden dazwischen Platz, wobei diejenigen, die häufigsten verwendet werden, am <wichtigsten> sind und deshalb weiter oben stehen, als solche, die nur selten benötigt werden. Eine Ausnahme können Routinen bilden, die Varianten anderer z. B. für Spezialfälle sind. diese sollten immer zusammen mit den „originalen“ gruppiert werden, damit alle Variationen auf einen Blick erkennbar sind. 
+
+  

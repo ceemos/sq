@@ -1,0 +1,47 @@
+* Aufgabe 6: Kopfkommentare
+
+*** a)
+  [Vorbedingungen:] Das Array darf nicht leer sein.
+
+  [Nachbedingungen:] Das Ergebnis ist die Summe der Elemente geteilt durch die Anzahl Elemente.
+
+*** b)
+
+---------------------------------------------------.ada
+--  ---------------------------------------------------------------------------
+--  @Function: Even_Sum
+--  @Description: 
+--    Calcualates the sum of all even elements in the array.
+--  @Parameter:
+--    +A: the array. 
+--  @Return: 
+--    The sum of all even elements
+--  @Pre: 
+--    true
+--  @Post: 
+--    result = Sum  {x in A | x is even} 
+
+---------------------------------------------------
+
+*** c) 
+
+  Abgesehen von kleinen formalen Fehlern entspricht der Kommentar der Programmierrichtlinie. Die Nachbedingung enthält zudem einen inhaltlichen Fehler (k ≠ j).
+
+---------------------------------------------------.ada
+--  ---------------------------------------------------------------------------
+--  @Function: Get_Index
+--  @Description:
+--    Returns the minimum index of Item in A.
+--  @Parameter:
+--    +A: the array
+--    +Item: element searched for
+--  @Return:
+--    The minimum index of Item in A.
+--  @Pre:
+--    true
+--  @Post:
+--    if exists 1 <= I <= UPPER_BOUND: A(I) = Item then
+--      result = min {1 <= k <= UPPER_BOUND | a(k) = item} 
+--    else 
+--      result = 0
+---------------------------------------------------

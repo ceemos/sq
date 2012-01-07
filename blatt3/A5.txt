@@ -1,0 +1,18 @@
+* Aufgabe 5: Schleifenvarianten
+
+  * Die Implementierung könnte prinzipiell funktionieren -- sie ist also <sinnvoll> -- es fehlt allerdings die Inkrementierung der Laufvariable, deshalb ist sie <<nicht>> korrekt.
+
+  * Die Verwendung einer <<<for>>>-Schleife wäre einfacher, offensichtlicher, sinnvoller und würde den Fehler prinzipiell vermeinden.
+
+-------------------------------------.ada
+type Int_Array_Type is array (Natural range <>) of Integer;
+
+function Mean (Num : Int_Array_Type) return Integer is
+  Sum : Integer := 0;
+begin
+  for Cnt in Num'Range loop
+    Sum := Sum + Num (Cnt);
+  end loop;
+  return Sum / Num'Length;
+end Mean;
+-------------------------------------

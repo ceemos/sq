@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>10</x>
+      <y>110</y>
+      <w>240</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>File
+--
+type File_Type is private
+type File is access
+ 
+private 
+type Entry_Type is private
+type Entry is access
+
+--
+Read_File (Filename : String) 
+  return File
+ 
+Print_Rotated (F : File)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>280</x>
+      <y>110</y>
+      <w>260</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>Line
+--
+type Line_Type is private
+type Line is access
+ 
+private 
+type Word_Type is private
+type  Word is access
+--
+Create_Form_String (Text : String)
+  return Line
+ 
+Length_In_Words (L : Line)
+  return Natural
+ 
+Rotate_By_One (L : in out Line)
+ 
+Print (L : Line)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>220</x>
+      <y>130</y>
+      <w>80</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60;30;30;30</additional_attributes>
+  </element>
+</diagram>
