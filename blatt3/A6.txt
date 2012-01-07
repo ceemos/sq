@@ -7,7 +7,7 @@
 
 *** b)
 
----------------------------------------------------.ada
+---------------------------------------------------
 --  ---------------------------------------------------------------------------
 --  @Function: Even_Sum
 --  @Description: 
@@ -27,7 +27,7 @@
 
   Abgesehen von kleinen formalen Fehlern entspricht der Kommentar der Programmierrichtlinie. Die Nachbedingung enthält zudem einen inhaltlichen Fehler (k ≠ j).
 
----------------------------------------------------.ada
+---------------------------------------------------
 --  ---------------------------------------------------------------------------
 --  @Function: Get_Index
 --  @Description:
