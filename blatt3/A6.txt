@@ -1,9 +1,9 @@
 * Aufgabe 6: Kopfkommentare
 
 *** a)
-  [Vorbedingungen:] Das Array darf nicht leer sein.
+  Vorbedingungen: Das Array darf nicht leer sein.
 
-  [Nachbedingungen:] Das Ergebnis ist die Summe der Elemente geteilt durch die Anzahl Elemente.
+  Nachbedingungen: Das Ergebnis ist die Summe der Elemente geteilt durch die Anzahl Elemente.
 
 *** b)
 
@@ -45,3 +45,5 @@
 --    else 
 --      result = 0
 ---------------------------------------------------
+
+  Die Programmierrichtlinie macht keine Angaben dazu wie die Bedingungen in <<<@Pre>>> und <<<@Post>>> ausgedrückt werden sollen. Auch die zwei Beispiele im Anhang sind eher vage, und LiberAda enthält keinerlei solche Bedingungen die als Beispiel dienen könnten. Deshalb nehme ich an, dass die Angaben so wie sie hier formuliert sind in Ordnung sind.
