@@ -62,14 +62,16 @@ package body Formatter is
       
       Current : Character;
       
+      Last_Pass : Boolean := False;
+      
       I : Integer;
       
    begin
       --  while loop because we need to jump back sometimes
       --  for I in Text'Range loop
       I := Text'First;
+      Current := Text (I);
       while I <= Text'Last loop
-         Current := Text (I);
          case State is
             when Normal_Text =>
                if Current = '%' then
@@ -106,12 +108,9 @@ package body Formatter is
                      State := Width;
                   when others =>
                      --  finished, no alignment
-                     State := Normal_Text;
-                     Output := Output & Values 
-                        (Integer'Value (To_String (Index_Text)));
-                     --  don't forget the last Character
-                     I := I - 1; 
-                     Index_Text := Empty_String;
+                     --  makes the parser fall thru to the output code below
+                     State := Width;
+                     I := I - 1;
                end case;
             when Width =>
                case Current is 
@@ -124,13 +123,19 @@ package body Formatter is
                            Integer'Value (To_String (Index_Text));
                         Width : Integer;
                      begin
-                        if Width_Text = Empty_String then
-                           --  no alignment - cases like "%1Rxyz"
-                           Output := Output & Values (Index);
-                        else
-                           Width := Integer'Value (To_String (Width_Text));
-                           Output := Output & Align 
-                              (To_String (Values (Index)), Alignment, Width);
+                        if Values'First > Index or Values'Last < Index then
+                           --  Index out of range, try to rec. the parsed text
+                           Output := Output & '%' & Index_Text;
+                           --  Formatting info is dropped, it's hard to rec.
+                        else   
+                           if Width_Text = Empty_String then
+                              --  no alignment - cases like "%1Rxyz"
+                              Output := Output & Values (Index);
+                           else
+                              Width := Integer'Value (To_String (Width_Text));
+                              Output := Output & Align 
+                                (To_String (Values (Index)), Alignment, Width);
+                           end if;
                         end if;
                         --  don't forget the last Character
                         I := I - 1; 
@@ -141,7 +146,19 @@ package body Formatter is
                      State := Normal_Text;
                end case;  
          end case;
-         I := I + 1;
+         
+         if I = Text'Last and State /= Normal_Text and not Last_Pass then
+            --  we need to make one more run to have a chance to output, but  
+            --  the addtional character shall never be output.
+            Last_Pass := True;
+            Current := ' ';
+         elsif I < Text'Last then
+            I := I + 1;
+            Current := Text (I);
+         else
+            --  this actually means 'exit'
+            I := I + 1;
+         end if;
       end loop;
       return To_String (Output);
    end Format;
