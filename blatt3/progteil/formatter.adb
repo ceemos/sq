@@ -43,7 +43,12 @@ package body Formatter is
       end case;
       
       return To_String (Pad_Left * Padding & Text & Pad_Right * Padding); 
-            
+      
+   exception
+      when Constraint_Error =>
+         --  the field is to small for the Text
+         return Text;
+         --  we could also truncate it, but probably this is better.       
    end Align;
      
    function Format
@@ -62,8 +67,6 @@ package body Formatter is
       
       Current : Character;
       
-      Last_Pass : Boolean := False;
-      
       I : Integer;
       
    begin
@@ -71,7 +74,7 @@ package body Formatter is
       --  for I in Text'Range loop
       I := Text'First;
       Current := Text (I);
-      while I <= Text'Last loop
+      while I <= Text'Last or State /= Normal_Text loop
          case State is
             when Normal_Text =>
                if Current = '%' then
@@ -147,19 +150,17 @@ package body Formatter is
                end case;  
          end case;
          
-         if I = Text'Last and State /= Normal_Text and not Last_Pass then
+         I := I + 1;
+         if I <= Text'Last then
+            --  normal case
+            Current := Text (I);            
+         elsif I > Text'Last then
             --  we need to make one more run to have a chance to output, but  
-            --  the addtional character shall never be output.
-            Last_Pass := True;
+            --  the addtional character shall never be output.         
             Current := ' ';
-         elsif I < Text'Last then
-            I := I + 1;
-            Current := Text (I);
-         else
-            --  this actually means 'exit'
-            I := I + 1;
          end if;
       end loop;
+      
       return To_String (Output);
    end Format;
       
