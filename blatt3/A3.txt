@@ -1,32 +1,35 @@
 * Aufgabe 3: Programmstrukturierung, Fehler, Korrektur
 
-  * Die Variable <<<Values>>> ist ein Array, das alle eingegeben Werte speichert. Die Variable <<<Last>>> gibt die Anzahl der im Array enthaltenen Werte an. Dies ist notwendig, da zum Speichern einer variablen Anzahl Werte ein Array fester Länge genutzt wird. Die Variable <<<Value>>> wird an meheren Stellen des Programms zum temporären Speichern eines Wertes verwendet (in <<<Read_Values>>> und <<<Sort_Values>>>).
+  * Die Variable <<<Values>>> ist ein Array, das alle eingegeben Werte speichert. Die Variable <<<Last>>> gibt die Anzahl der im Array enthaltenen Werte an. Dies ist notwendig, da zum Speichern einer variablen Anzahl Werte ein Array fester Länge genutzt wird. Die Variable <<<Value>>> wird an mehreren Stellen des Programms zum temporären Speichern eines Wertes verwendet (in <<<Read_Values>>> und <<<Sort_Values>>>).
 
   * Syntaktisch betrachtet werden im Programm gar keine Parameter übergeben. Die Weitergabe von Werten zwischen Unterprogrammen erfolgt über im gesamten Programmabschnitt sichtbare Variablen und direkte Benutzereingabe.
 
-  Besser wäre eine Übergabe von <echten> Parametern. Dadurch wird das Programm leichter Verständlich (es ist besser erkennbar, wo welche Variablen verwendet und verändert werden), zudem können die Bezeichner von Parametern viel über ihere Bedeutung sagen. Außerdem wird die Wiederverwendung des Codes für andere Anwendungen einfacher, da das Programm in mehr abgeschlossene Einheiten aufgeteilt wird, die einzeln wiederverwendet oder gegen bessere Implementierungen ausgetauscht werden können.
+  Besser wäre eine Übergabe von <echten> Parametern. Dadurch wird das Programm leichter Verständlich (es ist besser erkennbar, wo welche Variablen verwendet und verändert werden), zudem können die Bezeichner von Parametern viel über ihre Bedeutung sagen. Außerdem wird die Wiederverwendung des Codes für andere Anwendungen einfacher, da das Programm in mehr abgeschlossene Einheiten aufgeteilt wird, die einzeln wiederverwendet oder gegen bessere Implementierungen ausgetauscht werden können.
 
-  * Das Programm wurde an den Stellen, an deden es die Implementierung einfach zulässt, nämlich an den Grenzen der Schleifen aufgeteilt. Diese Aufteilung ist durchaus sinnvoll, zumindest für <<<Read_Values>>> und <<<Sort_Values>>>, da in den jeweiligen Schleifen tatsächlich genau die naheliegende Operation durchgeführt wird (Einlesen und Sortieren). Nicht unbedingt sinnvoll ist die Aufteilung bei <<<Print_Median>>>: in dieser Prozedur wurde der gesamte verbleibende Code zusammengefasst, der nicht nur den Median ausgibt, sondern diesen zunächt einmal berechnet. Hier wäre es besser, noch eine Funktion zur Bestimmung des Median einzusetzen, der Code zur Ausgabe könnte dann auch direkt im Hauptprogramm verbleiben. 
+  * Das Programm wurde an den Stellen, an denen es die Implementierung einfach zulässt, nämlich an den Grenzen der Schleifen aufgeteilt. Diese Aufteilung ist durchaus sinnvoll, zumindest für <<<Read_Values>>> und <<<Sort_Values>>>, da in den jeweiligen Schleifen tatsächlich genau die naheliegende Operation durchgeführt wird (Einlesen und Sortieren). Nicht unbedingt sinnvoll ist die Aufteilung bei <<<Print_Median>>>: in dieser Prozedur wurde der gesamte verbleibende Code zusammengefasst, der nicht nur den Median ausgibt, sondern diesen zunächst einmal berechnet. Hier wäre es besser, noch eine Funktion zur Bestimmung des Median einzusetzen, der Code zur Ausgabe könnte dann auch direkt im Hauptprogramm verbleiben. 
 
   * In <<<Read_Values>>> wird falsch mit <<<Values'First>>> umgegangen. Das Programm Funktioniert nur wenn das Array bei 1 beginnt.
 
-  Da <<<Last>>> immer als Array-Index verwendet wird, sollte es mit Values'First initalisiert werden. In der <<<Get>>>-Zeile wird es aber noch als laufende Nummer behandelt (auf die <<<Values'Last>>> addiert werden muss damit daraus ein gültiger Index wird).
+  Da <<<Last>>> immer als Array-Index verwendet wird, sollte es mit <<<Values'First>>> initialisiert werden. In der <<<Get>>>-Zeile wird es aber noch als laufende Nummer behandelt (auf die <<<Values'Last>>> addiert werden muss damit daraus ein gültiger Index wird).
+
+  Zudem wird der 20. Wert nicht gespeichert, wenn 20 Werte eingegeben wurden, da die Schleife zu früh verlassen und der Wert damit verworfen wird.
 
   Richtiger wäre es z. B. so:
 
 -----------------------------------.ada
   Last := Values'First;
-  loop
+  while Last <= (Values'Last + 1) loop
     Put ("Value (" &
       Integer'Image (Last) & "): ");
     Get (Value);
-    exit when Value <= 0 or (Last + 1) > Values'Last;
+    exit when Value <= 0;
     Values (Last) := Value;
     Last          := Last + 1;
   end loop;
+  Last := Last - 1;
 -----------------------------------
 
-  * Die Bedeutung der Varaiblem im Programm ist nicht einfach herauszufinden: Man muss dazu immer das gesamte Programm überblicken. Hier würden Kommentare helfen, noch besser wäre die Verwendung von <echten> Parametern mit Kommentierung und sprechenden Bezeichnern.
+  * Die Bedeutung der Variablen im Programm ist nicht einfach herauszufinden: Man muss dazu immer das gesamte Programm überblicken. Hier würden Kommentare helfen, noch besser wäre die Verwendung von <echten> Parametern mit Kommentierung und sprechenden Bezeichnern.
 
-  Zudem ist das verwendete Sortierverfahren nicht offensichtlich, eine kurze Erläuterung am Anfang oder ein Verweis auf den NAmen eines bekannten Verfahrens könnte dem Leser das Entziffern ersparen. Auch die Berechnung des Median in <<<Print_Median>>> ist nicht sofort offensichtlich,  speziell im <<<else>>>-Zweig könnte der lange Rechenausdruck etwas kommentiert werden (z. B. die Verwendung von <<<+ 1>>> um eine korrekte Rundung zu erhalten).
+  Zudem ist das verwendete Sortierverfahren nicht offensichtlich, eine kurze Erläuterung am Anfang oder ein Verweis auf den Namen eines bekannten Verfahrens könnte dem Leser das Entziffern ersparen. Auch die Berechnung des Median in <<<Print_Median>>> ist nicht sofort offensichtlich,  speziell im <<<else>>>-Zweig könnte der lange Rechenausdruck etwas kommentiert werden (z. B. die Verwendung von <<<+ 1>>> um eine korrekte Rundung zu erhalten).
 

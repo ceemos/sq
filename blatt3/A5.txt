@@ -2,6 +2,8 @@
 
   * Die Implementierung könnte prinzipiell funktionieren -- sie ist also <sinnvoll> -- es fehlt allerdings die Inkrementierung der Laufvariable, deshalb ist sie <<nicht>> korrekt.
 
+  Zudem wird der Durchschnitt von Ganzzahlen wahrscheinlich keine ganze Zahl sein, es wäre also eventuell sinnvoll den Typ <<<Float>>> für die Berechnung und das Ergebnis zu benutzen.
+
   * Die Verwendung einer <<<for>>>-Schleife wäre einfacher, offensichtlicher, sinnvoller und würde den Fehler prinzipiell vermeinden.
 
 -------------------------------------.ada

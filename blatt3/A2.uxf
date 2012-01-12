@@ -6,62 +6,94 @@
     <coordinates>
       <x>10</x>
       <y>110</y>
-      <w>240</w>
-      <h>290</h>
+      <w>310</w>
+      <h>250</h>
     </coordinates>
-    <panel_attributes>File
+    <panel_attributes>Text_Lines
 --
-type File_Type is private
-type File is access
- 
-private 
-type Entry_Type is private
-type Entry is access
+type Text_Lines_Type is private
+type Text_Lines is access
 
 --
 Read_File (Filename : String) 
-  return File
+  return Text_Lines
+
+Add_Line Lines : in out Text_Lines;
+    Line : Line_Of_Words)
+  
+
+Sort_Lines (Lines : Text_Lines)
+
+Create_Rotated_Lines (Text : Text_Lines)
+    return Text_Lines
  
-Print_Rotated (F : File)</panel_attributes>
+Put (F : Text_Lines)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>280</x>
+      <x>360</x>
       <y>110</y>
-      <w>260</w>
-      <h>290</h>
+      <w>310</w>
+      <h>340</h>
     </coordinates>
-    <panel_attributes>Line
+    <panel_attributes>Line_Of_Words
 --
-type Line_Type is private
-type Line is access
+type Line_Of_Words_Type is private
+type Line_Of_Words is access
  
-private 
+ -- Word bildet eine Ringliste mit 
+ -- Anker in Line
 type Word_Type is private
 type  Word is access
 --
 Create_Form_String (Text : String)
-  return Line
- 
-Length_In_Words (L : Line)
-  return Natural
- 
-Rotate_By_One (L : in out Line)
- 
-Print (L : Line)</panel_attributes>
+     return Line_Of_Words
+Length_In_Words (L : Line_Of_Words)
+     return Natural
+"&lt;" (Left, Right : Line_Of_Words)
+     return Boolean
+Rotate_By_One (L : Line_Of_Words)
+     return Line_Of_Words
+Put (L : Line_Of_Words)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>220</x>
+      <x>290</x>
       <y>130</y>
-      <w>80</w>
+      <w>90</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>60;30;30;30</additional_attributes>
+    <additional_attributes>70;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>10</x>
+      <y>380</y>
+      <w>310</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Line_Rotator
+--
+ 
+--
+Line_Rotator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>140</x>
+      <y>330</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
   </element>
 </diagram>

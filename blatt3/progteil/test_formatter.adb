@@ -39,7 +39,7 @@ begin
    Put_Line ("Right:  " &
      Formatter.Align ("Hello world", Formatter.Right, 20));
    
-   Put_Line (Formatter.Format ("Hallo %0 %1", Values));
+   Put_Line (Formatter.Format ("Hallo %0 %1!", Values));
    Put_Line (Formatter.Format ("Die Mehrwertsteuer betraegt %2%%.", Values));
 
    Put_Line (Formatter.Format ("Ware 1 %3R20 Euro", Values));
