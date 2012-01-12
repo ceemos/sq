@@ -17,8 +17,8 @@ package body Formatter is
    --  Else we can't really use operators
    use Ada.Strings.Unbounded;
 
-   function Align
-      (Text     : String;
+   function Align      
+     (Text     : String;
       Alignment : Alignment_Type;
       Field     : Natural)
      return String is
@@ -51,8 +51,10 @@ package body Formatter is
          --  we could also truncate it, but probably this is better.       
    end Align;
      
-   function Format
-      (Text  : String;
+     
+       
+   function Format      
+     (Text  : String;
       Values : Values_Array_Type) return String is
       
       Empty_String : Unbounded_String := To_Unbounded_String ("");
